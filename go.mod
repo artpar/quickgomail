@@ -1,1 +1,3 @@
-module github.com/nilslice/email
+module github.com/artpar/quickgomail
+
+go 1.13

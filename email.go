@@ -12,7 +12,7 @@ type Message struct {
 	To      string
 	From    string
 	Subject string
-	Body    string
+	Body    []byte
 }
 
 var (
@@ -100,7 +100,7 @@ func send(m Message, c *smtp.Client) error {
 		}
 	}
 
-	_, err = fmt.Fprint(msg, m.Body)
+	_, err = msg.Write(m.Body)
 	if err != nil {
 		return err
 	}
